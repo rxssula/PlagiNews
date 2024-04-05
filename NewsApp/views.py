@@ -2,6 +2,9 @@ from django.shortcuts import render
 from bs4 import BeautifulSoup
 import requests
 # Create your views here.
+
+def search(request):
+    return render(request, 'NewsApp/search.html', {})
 def index(request):
     original_link = 'https://tengrinews.kz'
     html_text = requests.get('https://tengrinews.kz/news/page/1/').text
