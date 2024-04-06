@@ -4,7 +4,11 @@ import requests
 # Create your views here.
 
 def search(request):
-    return render(request, 'NewsApp/search.html', {})
+    if request.method == "POST":
+        searched = request.POST['searched']
+        return render(request, 'NewsApp/search.html', {'searched': searched})
+    else:
+        return render(request, 'NewsApp/search.html', {})
 def index(request):
     original_link = 'https://tengrinews.kz'
     html_text = requests.get('https://tengrinews.kz/news/page/1/').text

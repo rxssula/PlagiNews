@@ -1,5 +1,12 @@
 {% extends 'NewsApp/base.html' %}
 
 {% block content %}
-    <h1>Your searched for...</h1>
+    <center>
+        {% if searched %}
+        <h1>Your searched for {{ searched }}</h1>
+        {% else %}
+            <h1>You forgot to search for news</h1>
+        {% endif %}
+
+    </center>
 {% endblock %}
