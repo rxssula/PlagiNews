@@ -5,17 +5,18 @@
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          {% for link, image_link, title in news %}
-        <div class="col">
-            <a href="{{ link }}" class="card-text link-dark link-underline link-underline-opacity-0 link-underline-opacity-75-hover">
-          <div class="card shadow-sm">
-            <img src="{{ image_link }}" alt = "news image" />
-            <div class="card-body">
-              <h4 class="card-text">{{ title }}</h4>
+          {% for link, image_link, title, text in news %}
+              <div class="col">
+                <div class="card h-10">
+                    <a href="{{ link }}" class="card-text link-dark link-underline-opacity-0">
+                  <img src="{{ image_link }}" class="card-img-top" alt="news image">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ title }}</h5>
+                    <p class="card-text">{{ text }}</p>
+                  </div>
+                    </a>
+                </div>
             </div>
-          </div>
-            </a>
-        </div>
         {% endfor %}
       </div>
     </div>

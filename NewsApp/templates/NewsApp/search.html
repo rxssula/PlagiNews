@@ -3,7 +3,27 @@
 {% block content %}
     <center>
         {% if searched %}
-        <h1>Your searched for {{ searched }}</h1>
+            <h2>Your searched for {{ searched }}</h2>
+          <div class="album py-5 bg-light">
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                  {% for link, image_link, title, text in news %}
+                      <div class="col">
+                        <div class="card h-10">
+                            <a href="{{ link }}" class="card-text link-dark link-underline-opacity-0">
+                          <img src="{{ image_link }}" class="card-img-top" alt="news image">
+                          <div class="card-body">
+                            <h5 class="card-title">{{ title }}</h5>
+                            <p class="card-text">{{ text }}</p>
+                          </div>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+                      </div>
+              </div>
+            </div>
+          </div>
         {% else %}
             <h1>You forgot to search for news</h1>
         {% endif %}

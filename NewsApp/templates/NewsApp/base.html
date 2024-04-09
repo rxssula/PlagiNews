@@ -48,14 +48,14 @@
 <header>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">PlagiNews</a>
+    <a class="navbar-brand" href="{% url 'index' %}">PlagiNews</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="/sport/">Sport</a>
-        <a class="nav-link" href="/edu/">Education</a>
+        <a class="nav-link active" aria-current="page" href="{% url 'sport' %}">Sport</a>
+        <a class="nav-link" href="{% url 'edu' %}">Education</a>
       </div>
     </div>
   </div>
@@ -90,8 +90,7 @@
     <p class="float-end mb-1">
       <a href="#">Back to top</a>
     </p>
-    <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/5.0/getting-started/introduction/">getting started guide</a>.</p>
+    <p class="mb-1">Thanks to <a href="https://tengrinews.kz/">TengriNews</a> for providing necessary data for this project</p>
   </div>
 </footer>
 
