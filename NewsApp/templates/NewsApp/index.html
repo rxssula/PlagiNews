@@ -5,22 +5,54 @@
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          {% for link, image_link, title, text in news %}
-              <div class="col">
+{#          {% for link, image_link, title, text in news %}#}
+            {% for new in news_list %}
+            <div class="col">
                 <div class="card h-10">
-                    <a href="{{ link }}" class="card-text link-dark link-underline-opacity-0">
-                  <img src="{{ image_link }}" class="card-img-top" alt="news image">
+                    <a href="{{ new.link }}" class="card-text link-dark link-underline-opacity-0">
+                  <img src="{{ new.image_link }}" class="card-img-top" alt="news image">
                   <div class="card-body">
-                    <h5 class="card-title">{{ title }}</h5>
-                    <p class="card-text">{{ text }}</p>
+                    <h5 class="card-title">{{ new.title }}</h5>
+                    <p class="card-text">{{ new.description }}</p>
                   </div>
                     </a>
                 </div>
             </div>
         {% endfor %}
       </div>
+        <br>
+        <br>
+    <nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+
+
+
+        {% if news_list.has_previous %}
+    <li class="page-item">
+        <a class="page-link" href="?page=1">&laquo First</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="?page={{ news_list.previous_page_number }}">Previous</a>
+    </li>
+    {% endif %}
+    {% for i in nums %}
+      <li class="page-item"><a class="page-link" href="?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
+  {% endfor %}
+    {% if news_list.has_next %}
+    <li class="page-item">
+        <a class="page-link" href="?page={{ news_list.next_page_number }}">Next</a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="?page={{ news_list.paginator.num_pages }}">Last &raquo</a>
+    </li>
+    {% endif %}
+
+  </ul>
+</nav>
     </div>
   </div>
+
+
 
 {% endblock %}
 
