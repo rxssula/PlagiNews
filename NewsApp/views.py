@@ -7,7 +7,7 @@ from .scrapper import scrap_edu, scrap_sport, scrap_news
 # Create your views here.
 
 def edu(request):
-    scrap_edu()
+    # scrap_edu()
     p = Paginator(EduItem.objects.all(), 21)
     page = request.GET.get('page')
     news_list = p.get_page(page)
@@ -15,7 +15,7 @@ def edu(request):
     return render(request, 'NewsApp/edu.html', {'nums': nums, 'news_list': news_list})
 
 def sport(request):
-    scrap_sport()
+    # scrap_sport()
     p = Paginator(SportItem.objects.all(), 21)
     page = request.GET.get('page')
     news_list = p.get_page(page)
@@ -49,7 +49,7 @@ def search(request):
     else:
         return render(request, 'NewsApp/search.html', {})
 def index(request):
-    scrap_news()
+    # scrap_news()
     p = Paginator(NewsItem.objects.all(), 21)
     page = request.GET.get('page')
     news_list = p.get_page(page)
