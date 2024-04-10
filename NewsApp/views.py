@@ -7,7 +7,7 @@ import requests
 
 def edu(request):
     # scrap_edu()
-    p = Paginator(NewsItem.objects.all().filter(category='edu'), 21)
+    p = Paginator(NewsItem.objects.all().filter(category='edu').order_by('-date'), 21)
     page = request.GET.get('page')
     news_list = p.get_page(page)
     nums = 'a' * news_list.paginator.num_pages
@@ -15,7 +15,7 @@ def edu(request):
 
 def sport(request):
     # scrap_sport()
-    p = Paginator(NewsItem.objects.all().filter(category='sport'), 21)
+    p = Paginator(NewsItem.objects.all().filter(category='sport').order_by('-date'), 21)
     page = request.GET.get('page')
     news_list = p.get_page(page)
     nums = 'a' * news_list.paginator.num_pages
@@ -49,7 +49,7 @@ def search(request):
         return render(request, 'NewsApp/search.html', {})
 def index(request):
     # scrap_news()
-    p = Paginator(NewsItem.objects.all().filter(category='news').order_by('date'), 21)
+    p = Paginator(NewsItem.objects.all().filter(category='news').order_by('-date'), 21)
     page = request.GET.get('page')
     news_list = p.get_page(page)
     nums = 'a' * news_list.paginator.num_pages
