@@ -1,6 +1,5 @@
 from django.core.management.base import BaseCommand
 from NewsApp.scrapper import scrap_news, scrap_edu, scrap_sport
-from NewsApp.models import NewsItem, SportItem, EduItem
 import schedule
 import time
 

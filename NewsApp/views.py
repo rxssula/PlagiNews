@@ -1,14 +1,13 @@
-from .models import NewsItem, SportItem, EduItem
+from .models import NewsItem
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from bs4 import BeautifulSoup
 import requests
-from .scrapper import scrap_edu, scrap_sport, scrap_news
 # Create your views here.
 
 def edu(request):
     # scrap_edu()
-    p = Paginator(EduItem.objects.all(), 21)
+    p = Paginator(NewsItem.objects.all().filter(category='edu'), 21)
     page = request.GET.get('page')
     news_list = p.get_page(page)
     nums = 'a' * news_list.paginator.num_pages
@@ -16,7 +15,7 @@ def edu(request):
 
 def sport(request):
     # scrap_sport()
-    p = Paginator(SportItem.objects.all(), 21)
+    p = Paginator(NewsItem.objects.all().filter(category='sport'), 21)
     page = request.GET.get('page')
     news_list = p.get_page(page)
     nums = 'a' * news_list.paginator.num_pages
@@ -50,7 +49,7 @@ def search(request):
         return render(request, 'NewsApp/search.html', {})
 def index(request):
     # scrap_news()
-    p = Paginator(NewsItem.objects.all(), 21)
+    p = Paginator(NewsItem.objects.all().filter(category='news').order_by('date'), 21)
     page = request.GET.get('page')
     news_list = p.get_page(page)
     nums = 'a' * news_list.paginator.num_pages

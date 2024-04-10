@@ -5,7 +5,6 @@
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-{#          {% for link, image_link, title, text in news %}#}
             {% for new in news_list %}
             <div class="col">
                 <div class="card h-10">
@@ -16,6 +15,9 @@
                     <p class="card-text">{{ new.description }}</p>
                   </div>
                     </a>
+{#                    <div class="card-footer">#}
+{#                        <small class="text-body-secondary">{{ new.time }}</small>#}
+{#                    </div>#}
                 </div>
             </div>
         {% endfor %}
